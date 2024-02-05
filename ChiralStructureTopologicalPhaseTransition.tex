@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[all]{xy}
+
+\usepackage{amsmath,amsthm,amssymb,color,latexsym}
+\usepackage{geometry}        
+\geometry{a4paper}    
+\usepackage{graphicx}
+\usepackage{kotex}
+\usepackage{enumitem}
+
+\newenvironment{solution}[1][\it{Solution}]{\textbf{#1. } }{$\square$}
+
+% Define a new theorem style
+\newtheoremstyle{problemstyle}  % Name of the style
+  {20mm}                        % Space above
+  {20mm}                        % Space below
+  {\normalfont}                 % Font style
+  {}                            % Indent amount
+  {\bfseries}                   % Theorem head font
+  {.}                           % Punctuation after theorem head
+  {.5em}                        % Space after theorem head
+  {}                            % Theorem head spec
+
+\theoremstyle{problemstyle}
+\newtheorem{problem}{}
+
+\newlist{subproblem}{enumerate}{1} % Create a new list type for subproblems
+\setlist[subproblem,1]{label=$\ast$} %,ref=\theproblem(\Alph*)} % Configure the new list to use alphabetical labels
+
+\begin{document}
+
+\noindent \hfill 
+
+DMI chiral structure has a topological phase transition
+%\hrulefill
+
+\noindent 
+
+\begin{problem} Formalism
+    \begin{itemize}
+    
+        \item Mapping
+        \begin{equation}\begin{split}
+            \stackrel{\leftrightarrow}{Q} = \begin{pmatrix} 
+                Q_{xx} & Q_{xy} \\
+                Q_{yx} & Q_{yy} \\
+                \end{pmatrix} 
+                = \sum_{\chi = \{ x,y,z \} } 
+                \left( \frac{\partial S_{\chi}}{\partial x}, \frac{\partial S_{\chi}}{\partial y}\right)\otimes \left( \frac{\partial S_{\chi}}{\partial x}, \frac{\partial S_{\chi}}{\partial y}\right) 
+                = 
+                \begin{pmatrix} 
+                \frac{\partial \vec{S}}{\partial x} \cdot \frac{\partial \vec{S}}{\partial x} & \frac{\partial \vec{S}}{\partial x} \cdot \frac{\partial \vec{S}}{\partial y} \\
+                \frac{\partial \vec{S}}{\partial x} \cdot \frac{\partial \vec{S}}{\partial y} & \frac{\partial \vec{S}}{\partial y} \cdot \frac{\partial \vec{S}}{\partial y} \\
+                \end{pmatrix}
+            \end{split}\end{equation}
+        The tensor describes how the spin changes in space.
+        \begin{equation}
+            \stackrel{\leftrightarrow}{Q} =
+                \begin{pmatrix} u_{\rm{J}} & 0 \\ 0 & u_{\rm{J}} \end{pmatrix} + \begin{pmatrix} \alpha & \beta \\ \beta & -\alpha \end{pmatrix}
+                = u_{\rm{J}} \mathbb{I} + \alpha \sigma_z + \beta \sigma_x
+        \end{equation}
+        Three components are perpendicular to each other.
+        \begin{equation}
+            u_{\rm{J}} = \frac{1}{2} \mathrm{Tr}(\stackrel{\leftrightarrow}Q) = \frac{1}{2} \left( \frac{\partial \vec{S}}{\partial x} \cdot \frac{\partial \vec{S}}{\partial x} 
+            + \frac{\partial \vec{S}}{\partial y} \cdot \frac{\partial \vec{S}}{\partial y} \right)
+        \end{equation}
+
+        It is the component for isotropic variation in spin structure and related to the exchange energy.
+        \begin{equation}
+            \alpha = \frac{1}{2} \left( Q_{xx}-Q_{yy} \right)= \frac{1}{2} \left( \frac{\partial \vec{S}}{\partial x} \cdot \frac{\partial \vec{S}}{\partial x} 
+            - \frac{\partial \vec{S}}{\partial y} \cdot \frac{\partial \vec{S}}{\partial y} \right)
+        \end{equation}
+        It is the component for vertical or horizontal texture in spin structure. If vertical, it is positive, if horizontal, it is negative. 
+
+        \begin{equation}
+            \beta = \frac{1}{2} \left( Q_{xy}+Q_{yx} \right)= \frac{\partial \vec{S}}{\partial x} \cdot \frac{\partial \vec{S}}{\partial y} 
+        \end{equation}
+        It is the component for diagonal textures in spin structure. The sign is determined with upright or downleft direction.
+        
+        \item Texture field and Topology 
+        
+        Taking advantage of the orthogonality, we define a texture vector field.     
+        
+        \begin{equation}
+            \vec{t} = (u_{\rm{J}},\alpha, \beta ) =(u_{\rm{J}}; \vec{t}_{XY} ),\,\, \vec{t}_{XY}= (\alpha, \beta) 
+        \end{equation}
+        
+        \begin{equation}
+            \vec{t}_{XY} \cdot \vec{t}_{XY} = \alpha^2 + \beta^2 = u_{\rm{J}}^2, \,\, t_{XY}=u_{\rm{J}}
+        \end{equation}
+        The texture vector is on the cornical surface.
+
+        \begin{equation}
+            U_{\rm{J}} = \int{u_{\rm{J}}} da
+        \end{equation}
+
+        \begin{equation}
+            \vec{T}_{XY} = \int\vec{t}_{XY} \, da
+        \end{equation}
+        
+        \item Orientation
+        
+        Normalized texture field
+        \begin{equation}
+            \frac{\vec{t}_{XY}}{t_{XY}} = \left( \frac{\alpha}{u_{\rm{J}}}, \frac{\beta}{u_{\rm{J}}} \right) = \left( {\cos \theta, \sin \theta} \right)
+        \end{equation}
+        Orientation field
+        \begin{equation}
+            \vec{o} = \left( {\cos \phi, \sin \phi} \right)
+        \end{equation}
+        \begin{equation}
+        \vec{o}\otimes\vec{o} \, \propto \, \begin{pmatrix} \alpha & \beta \\ \beta & -\alpha \end{pmatrix}
+        \end{equation}
+        \begin{equation}
+            \cos^2\phi - \sin^2\phi =  \frac{\alpha}{\sqrt{\alpha^2 + \beta^2}}
+        \end{equation}
+
+        \begin{equation}
+            2\sin\phi\cos\phi = \frac{\beta}{\sqrt{\alpha^2 + \beta^2}}
+        \end{equation}
+
+        \begin{equation}
+            \phi = \frac{1}{2} \arctan \left( \frac{\beta}{\alpha} \right) = \frac{1}{2} \theta
+        \end{equation}
+        Orientation field describes the orientation diretion of spin texture.
+        
+    \end{itemize}
+\end{problem}
+
+\begin{problem} Discussion
+    \begin{itemize}
+        \item $(S_x, S_y, S_z)$ to $(u_{\rm{J}}; \alpha, \beta)$ mapping preserves the number of variable, 3 and the degree of freedom, 2. The constraint is $S_x^2+S_y^2+S_z^2=1$, for vectors on sphere surface and $\alpha^2 + \beta^2 = u_{\rm{J}}^2$, for vectors on cornical surface.
+        \item $u_{\rm{J}}$ is related to the exchange energy density, and $(\alpha, \beta)$, projected on XY plane, is related to the topology.
+        \item Without the DMI, the lowest energy state is the uniform spin state, thus $u_{\rm{J}}=0$, $(\alpha, \beta)=0$
+        \item With the DMI, $u_{\rm{J}}$ is non-zero at the ground state, and it is proportional to $\frac{D^2}{J^2}$
+        \item In a cell with area $\frac{J^2}{D^2}$, $U_{\rm{cell}}$ and $T_{\rm{cell}}$ is constant of 1 at low temperature.
+        \item Heisenberg model with DMI is XY model of $\vec{T}$ at low temperature.
+        \item As temperature increases, $U_{\rm{cell}}$ increases and $T_{\rm{cell}}$ statistically remains non-zero constant. Note that thermal fluctuations increases $u_{\rm{J}}$ but added up to zero in $(\alpha, \beta)$.
+        \item The chiral structure melting phenomenon is topological phase transition as interpreted in XY model.
+    \end{itemize}
+\end{problem}
+
+
+\begin{problem}
+    Discrete model
+    \begin{equation}\begin{split}
+        u_{\rm{J}\,{i,j}} = \frac{1}{2} \left[ 4 - \vec{S}_{i,j}\cdot{ \left( {\vec{S}_{i+1,j}+\vec{S}_{i-1,j}+\vec{S}_{i,j+1}+\vec{S}_{i+1,j-1}}\right) }
+        \right]\\
+        \doteq 2 - \vec{S}_{i,j}\cdot{ \left( {\vec{S}_{i+1,j}+\vec{S}_{i,j+1}}\right) }
+    \end{split}\end{equation}
+    \begin{equation}\begin{split}
+        \alpha_{i,j} = - \frac{1}{2} \left[ \vec{S}_{i,j}\cdot{\left({\vec{S}_{i+1,j}+\vec{S}_{i-1,j}-\vec{S}_{i,j+1}-\vec{S}_{i,j-1}}\right) }\right]
+        \\ \doteq - \vec{S}_{i,j}\cdot{\left({\vec{S}_{i+1,j}-\vec{S}_{i,j+1}}\right)}
+    \end{split}\end{equation}
+    \begin{equation}\begin{split}
+        \beta_{i,j} = - \frac{1}{2} \left[ \vec{S}_{i,j}\cdot{\left({\vec{S}_{i+1,j+1}+\vec{S}_{i-1,j-1}-\vec{S}_{i-1,j+1}-\vec{S}_{i+1,j-1}}\right) }\right]
+        \\ \doteq  -{\vec{S}_{i+1,j+1}}\cdot\vec{S}_{i,j}+\vec{S}_{i+1,j}\cdot\vec{S}_{i,j+1}
+    \end{split}\end{equation}
+    To make the magnitude of texture field about one, the field is summed over an area of $\frac{J^2}{D^2}$
+    \begin{equation}
+        \vec{T}_{i,j} = \left({\sum_{\frac{J}{D},\,\frac{J}{D}}{\alpha_{p,q}},\sum_{\frac{J}{D},\frac{J}{D}}{\beta_{p,q}}}\right)
+    \end{equation}
+    \begin{equation}
+        \phi_{i,j} = \frac{1}{2} \arctan \left( \frac{\sum{\beta}}{\sum{\alpha}} \right)
+    \end{equation}
+\end{problem}
+
+\begin{problem} Simulation
+    
+        Heisenberg model with DMI can be expressed as Heisenberg mode without DMI and XY model 
+        \begin{equation}
+            U_{i,j} \simeq U_{D=0,i,j} + U_0
+        \end{equation}
+        \begin{equation}
+            \vec{T}_{i,j} \simeq \vec{T}_{\rm{XY}\,i,j}
+        \end{equation}
+
+    Simulation results $\vec{S}$ as increasing temperature
+    \begin{itemize}
+        \item Spin map
+        \item Orientation map
+        \item Texture field map 
+        \item Topological singularity map (The positions of Vortices and Antivortices)
+        
+    \end{itemize}
+
+    Phase transition with external field (Spiral - Skyrmion) or Phase transition under $H_z$ may be added (Skyrmion - PM)
+\end{problem}
+
+\begin{problem} Futher discussion / Future projects
+    \begin{itemize}
+        \item The role of out-of-plane field : topology dipole dipole interaction to generate quad-rupole. The same poles attract to each other, the opposite poles repel.
+        \item The role of in-plane field : topology dipole dipole interaction to cancel dipole moment. The dipoles align, or the same poles repels to each other and the opposite poles attract.
+        \item The phase transition from chiral to skyrmion is also related to topological phase transition free dipoles to quadrupole.
+        \item Skyrmion lattice is a kind of topological quadrupole lattice.
+        \item Skyrmion lattice melting is related to the topological phase transition.
+        \item Stripe melting is related to the topologogical phase transition
+        \item The formalism is to be generalized in the other spin models or three dimension
+    \end{itemize}
+\end{problem}
+
+\pagebreak
+
+Mapping Spin to Texture : Unveiling Topological Transitions in Chiral Magnetic Structures
+
+\vspace{8mm}
+We define a texture field and develop an analytical mapping method to transform a spin field into a texture field, which characterizes the magnitude and orientation of spin variations comprising a spin texture. Through this method, the chiral magnetic structure induced by the Dzyaloshinskii-Moriya Interaction effect is transformed and correlated to the XY model framework. By analyzing the texture field derived from the chiral magnetic structure, we elucidate the alterations in the topological properties of the chiral structure as a function of temperature. Our findings reveal that the melting of the chiral magnetic structure with increasing temperature represents a form of topological phase transition.
+
+\vspace{8mm}
+Introduction written by chatGPT
+
+In the realm of condensed matter physics, the intricate interactions of electron spins in magnetic materials forms the basis for a plethora of complex and fascinating phenomena. Among these, chiral magnetic structures, such as skyrmions and spin spirals, have garnered significant interest due to their potential applications in spintronic devices and information storage technologies. Central to the formation and dynamics of these structures is the Dzyaloshinskii-Moriya Interaction (DMI), an antisymmetric exchange interaction that stabilizes non-collinear spin configurations, imparting a unique chirality to magnetic structures.
+
+The study of chiral magnetic structures is not only pivotal for technological advancements but also for deepening our understanding of fundamental physical principles. In this context, the concept of a texture field emerges as a powerful analytical tool. A texture field, in essence, represents the spatial configuration of physical quantities—in this case, the orientation and magnitude of spins—providing a macroscopic view of the underlying microscopic interactions.
+
+The transformation of spin fields into texture fields facilitates a more intuitive understanding of complex magnetic phenomena, enabling researchers to visualize and analyze the spatial variations and topological features of spin arrangements. This approach draws a compelling parallel with the XY model, a theoretical framework in statistical mechanics known for its applications in describing phase transitions and topological defects in two-dimensional systems.
+
+This study introduces a novel mapping method to transform spin fields into texture fields, thereby offering a new lens through which to examine chiral magnetic structures. By employing this method, we aim to elucidate the intricate relationship between the microscopic spin configurations and the macroscopic properties of magnetic materials. Moreover, this work delves into the temperature-dependent behavior of chiral magnetic structures, investigating how thermal fluctuations influence their topological properties and stability. Through a detailed analysis, we uncover the phenomenon of temperature-induced topological phase transitions in chiral magnetic structures, a discovery that not only advances our theoretical understanding but also holds implications for the design and optimization of magnetic materials in technological applications.
+
+In summary, this research bridges the gap between the microscopic world of spin interactions and the macroscopic realm of magnetic textures, shedding light on the fundamental principles governing the behavior of chiral magnetic structures. By exploring the temperature-dependent dynamics of these structures, we contribute to the broader field of condensed matter physics, offering insights that could inform future experimental and theoretical endeavors in the study of magnetic materials.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%Continue with this pattern if there are more%%%%%%%
+%%%%%%%%%%%%%%%%%homework problems%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\vspace{8mm}
+Reference written by chatGPT
+\begin{itemize}
+
+\item Dzyaloshinskii-Moriya Interaction and Spin Textures:
+
+I. Dzyaloshinsky, "A thermodynamic theory of “weak” ferromagnetism of antiferromagnetics," Journal of Physics and Chemistry of Solids, 1958.
+T. Moriya, "Anisotropic Superexchange Interaction and Weak Ferromagnetism," Physical Review, 1960.
+These foundational papers introduce the DMI, which is crucial for understanding chiral magnetic structures.
+
+Chiral Magnetic Structures and Skyrmions:
+
+N. Nagaosa and Y. Tokura, "Topological properties and dynamics of magnetic skyrmions," Nature Nanotechnology, 2013.
+This review discusses the topological aspects of magnetic skyrmions, which are closely related to chiral magnetic structures.
+
+\item XY Model in Condensed Matter Physics:
+
+B. Berche, Y. Holovatch, and R. Kenna, "The XY model: from phase transitions to topological defects and back," Europhysics Letters, 2009.
+This paper provides insights into the XY model's application in studying phase transitions and topological defects, which may relate to your mapping method's context.
+Topological Phase Transitions:
+
+X.-G. Wen, "Topological Order: From Long-Range Entangled Quantum Matter to a Unified Origin of Light and Electrons," ISRN Condensed Matter Physics, 2013.
+This paper offers a broad overview of topological order and phase transitions, which could contextualize the topological phase transitions in chiral magnetic structures.
+
+\item Temperature Effects on Magnetic Structures:
+
+A. Bogdanov and A. Hubert, "Thermodynamically stable magnetic vortex states in magnetic crystals," Journal of Magnetism and Magnetic Materials, 1994.
+This study explores the stability of magnetic vortex states, which can be related to the temperature-dependent behavior of chiral magnetic structures.
+
+\item Advanced Techniques in Spin Texture Observations:
+
+S. Mühlbauer et al., "Skyrmion Lattice in a Chiral Magnet," Science, 2009.
+This experimental study demonstrates the observation of skyrmion lattices, which could provide insights into the techniques for observing and characterizing spin textures.
+\end{itemize}
+\end{document}
